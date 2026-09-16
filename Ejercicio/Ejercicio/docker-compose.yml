@@ -1,0 +1,36 @@
+services:
+  mysql_db:
+    image: mysql:8.0
+    container_name: PrometeoDB
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./backuppirotecnia.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql_data:/var/lib/mysql
+    networks:
+      - bi_network
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: PrometeoBI
+    ports:
+      - "3000:3000"
+    volumes:
+      - metabase_data:/metabase.db
+    environment:
+      MB_DB_FILE: /metabase.db/metabase.db
+    depends_on:
+      - mysql_db
+    networks:
+      - bi_network
+
+volumes:
+  mysql_data:
+  metabase_data:
+
+networks:
+  bi_network:
+    driver: bridge
