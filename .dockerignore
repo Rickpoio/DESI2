@@ -1,0 +1,28 @@
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+
+# Control de versiones
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Datos persistentes (se montan como volúmenes, no deben copiarse a la imagen)
+metabase-data/
+mysql_data/
+
+# Documentación
+README.md
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

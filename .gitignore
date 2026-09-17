@@ -1,0 +1,33 @@
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Docker / volúmenes persistentes
+metabase-data/
+mysql_data/
+
+# Bases de datos locales
+*.db
+*.mv.db
+*.trace.db
+*.sqlite3
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
