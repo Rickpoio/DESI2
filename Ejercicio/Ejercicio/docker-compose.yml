@@ -22,6 +22,7 @@ services:
       - ./metabase-data/metabase.db:/metabase.db
     environment:
       MB_DB_FILE: /metabase.db/metabase.db
+      MB_ENCRYPTION_SECRET_KEY: ${MB_ENCRYPTION_SECRET_KEY}
     depends_on:
       - mysql_db
     networks:

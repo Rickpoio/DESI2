@@ -14,7 +14,6 @@ env/
 .pytest_cache/
 
 # Docker / volúmenes persistentes
-metabase-data/
 mysql_data/
 
 # Bases de datos locales
@@ -22,6 +21,13 @@ mysql_data/
 *.mv.db
 *.trace.db
 *.sqlite3
+
+# La base de Metabase SÍ se versiona a propósito: es la única forma de que
+# los dashboards ya creados viajen con el repo hacia otras máquinas.
+!Ejercicio/Ejercicio/metabase-data/**
+# El .trace.db es solo un log de depuración (no hace falta para que Metabase
+# funcione) y puede contener consultas viejas con la contraseña en texto plano.
+Ejercicio/Ejercicio/metabase-data/**/*.trace.db
 
 # Editores / SO
 .vscode/
